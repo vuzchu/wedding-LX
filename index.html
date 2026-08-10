@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thành Long &amp; Thanh Xuân — Thiệp Mời Cưới</title>
+<meta name="description" content="Trân trọng kính mời quý khách tới dự lễ cưới của Nguyễn Thành Long và Nguyễn Thanh Xuân — 24.05.2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green-darkest:#16240e;
+    --green-dark:#26401a;
+    --green:#3c5e28;
+    --green-text:#3f5f2b;
+    --ivory:#f5f2e9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:'EB Garamond',serif;
+    background:radial-gradient(ellipse at 50% 42%, #2b4719 0%, #1d3110 45%, var(--green-darkest) 100%);
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    padding:24px;
+  }
 
+  /* ---- falling leaves ---- */
+  .leaves{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+  .leaf{
+    position:absolute;top:-6vh;
+    animation:fall linear infinite;
+    opacity:0;
+  }
+  .leaf svg{display:block;animation:sway ease-in-out infinite alternate}
+  @keyframes fall{
+    0%{transform:translateY(-6vh) rotate(0deg);opacity:0}
+    8%{opacity:.75}
+    90%{opacity:.6}
+    100%{transform:translateY(112vh) rotate(320deg);opacity:0}
+  }
+  @keyframes sway{
+    from{transform:translateX(-18px) rotate(-24deg)}
+    to{transform:translateX(18px) rotate(24deg)}
+  }
+  .leaf:nth-child(1){left:6%;animation-duration:13s;animation-delay:0s}
+  .leaf:nth-child(2){left:16%;animation-duration:17s;animation-delay:4s}
+  .leaf:nth-child(3){left:26%;animation-duration:14s;animation-delay:8s}
+  .leaf:nth-child(4){left:38%;animation-duration:19s;animation-delay:2s}
+  .leaf:nth-child(5){left:50%;animation-duration:15s;animation-delay:10s}
+  .leaf:nth-child(6){left:60%;animation-duration:18s;animation-delay:6s}
+  .leaf:nth-child(7){left:70%;animation-duration:13.5s;animation-delay:12s}
+  .leaf:nth-child(8){left:80%;animation-duration:16s;animation-delay:1s}
+  .leaf:nth-child(9){left:90%;animation-duration:20s;animation-delay:7s}
+  .leaf:nth-child(10){left:33%;animation-duration:22s;animation-delay:14s}
+  .leaf:nth-child(11){left:55%;animation-duration:21s;animation-delay:16s}
+  .leaf:nth-child(12){left:84%;animation-duration:23s;animation-delay:11s}
+  .leaf:nth-child(odd) svg{animation-duration:3.2s}
+  .leaf:nth-child(even) svg{animation-duration:4.4s}
+
+  /* ---- card ---- */
+  .card{
+    position:relative;
+    width:min(480px,100%);
+    background:var(--ivory);
+    border-radius:10px;
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+    text-align:center;
+    padding:58px 36px 44px;
+    overflow:hidden;
+    animation:cardIn .9s ease both;
+  }
+  @keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+  .card.closing{transition:opacity .45s ease,transform .45s ease;opacity:0;transform:scale(1.06)}
+
+  .corner{position:absolute;pointer-events:none;user-select:none}
+  .corner.tl{top:-8%;left:-14%;width:62%;transform:scaleX(-1);opacity:.95}
+  .corner.br{bottom:-10%;right:-12%;width:52%;opacity:.9}
+
+  .heart-badge{
+    position:relative;
+    width:56px;height:56px;margin:0 auto 18px;
+    background:var(--green-dark);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 8px rgba(38,64,26,.14);
+  }
+  .heart-badge svg{width:24px;height:24px;fill:#f5f2e9}
+
+  .names{position:relative}
+  .name{
+    font-family:'Playfair Display',serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,38px);
+    color:var(--green-text);
+    line-height:1.25;
+  }
+  .amp{
+    font-family:'EB Garamond',serif;font-style:italic;
+    font-size:20px;color:var(--green-text);opacity:.85;line-height:1.4;
+  }
+
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    margin:22px auto 16px;width:220px;color:#7d8f6d;
+  }
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:#a9b598}
+  .divider svg{width:14px;height:14px;fill:#7d8f6d}
+
+  .date{
+    position:relative;
+    font-size:19px;color:#4a5a40;letter-spacing:.04em;
+  }
+  .invite{
+    position:relative;
+    margin-top:22px;font-size:17px;color:#6b7a5e;letter-spacing:.14em;
+  }
+
+  .open-btn{
+    position:relative;
+    margin-top:22px;
+    font-family:'Montserrat',sans-serif;font-weight:500;font-size:15px;
+    color:#f5f2e9;background:var(--green-dark);
+    border:none;border-radius:999px;
+    padding:13px 34px;cursor:pointer;
+    box-shadow:0 8px 18px rgba(0,0,0,.28);
+    transition:transform .2s ease,background .2s ease;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .open-btn:hover{background:#31511f;transform:translateY(-2px)}
+  @keyframes pulse{0%,100%{box-shadow:0 8px 18px rgba(0,0,0,.28),0 0 0 0 rgba(245,242,233,.35)}55%{box-shadow:0 8px 18px rgba(0,0,0,.28),0 0 0 12px rgba(245,242,233,0)}}
+
+  @media (max-width:420px){
+    .card{padding:48px 22px 38px}
+  }
+</style>
+</head>
+<body>
+
+<div class="leaves" aria-hidden="true"></div>
+
+<main class="card" id="card">
+  <img class="corner tl" src="assets/img/flower-tr.png" alt="">
+  <img class="corner br" src="assets/img/flower-br.png" alt="">
+
+  <div class="heart-badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+  </div>
+
+  <div class="names">
+    <h1 class="name">Thành Long</h1>
+    <div class="amp">&amp;</div>
+    <h1 class="name">Thanh Xuân</h1>
+  </div>
+
+  <div class="divider" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+  </div>
+
+  <p class="date">24 tháng 5, 2026</p>
+  <p class="invite">Thân Mời</p>
+
+  <button class="open-btn" id="openBtn" type="button">Mở thiệp</button>
+</main>
+
+<script>
+  // falling leaves
+  (function(){
+    var wrap = document.querySelector('.leaves');
+    var leafSvg = '<svg viewBox="0 0 24 24" fill="#5a7a42"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>';
+    var html = '';
+    for (var i = 0; i < 12; i++) {
+      var size = 10 + (i * 7) % 14;
+      html += '<span class="leaf" style="width:' + size + 'px;height:' + size + 'px">' +
+              leafSvg.replace('<svg ', '<svg width="' + size + '" height="' + size + '" ') + '</span>';
+    }
+    wrap.innerHTML = html;
+  })();
+
+  // open invitation -> new page
+  document.getElementById('openBtn').addEventListener('click', function(){
+    document.getElementById('card').classList.add('closing');
+    setTimeout(function(){ window.location.href = 'thiep.html'; }, 420);
+  });
+</script>
+</body>
+</html>
